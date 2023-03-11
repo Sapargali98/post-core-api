@@ -14,7 +14,7 @@ public class PostServiceImpl implements PostService{
     HashMap<String, PostModel> postMap = new HashMap<>();
 
     {
-        PostModel post= new PostModel(UUID.randomUUID().toString(), UUID.randomUUID().toString(), "Post on the way", UUID.randomUUID().toString(), "Post complete");
+        PostModel post= new PostModel(UUID.randomUUID().toString(),UUID.randomUUID().toString(), "Post on the way", UUID.randomUUID().toString(), "Post complete");
         postMap.put(post.getPostId(),post);
     }
     @Override

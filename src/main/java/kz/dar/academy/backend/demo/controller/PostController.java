@@ -3,6 +3,7 @@ package kz.dar.academy.backend.demo.controller;
 import jakarta.validation.Valid;
 import kz.dar.academy.backend.demo.model.PostModel;
 import kz.dar.academy.backend.demo.service.PostService;
+import kz.dar.academy.backend.demo.service.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
