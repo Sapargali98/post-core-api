@@ -10,23 +10,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/{post}")
+@RequestMapping("/post")
 public class PostController {
     @Autowired
     private PostService postService;
+    @GetMapping("check")
+    public String check() {
+        return "Post-core-api is working";
+    }
     @GetMapping("/all")
     public List<PostModel> getAllPosts() {
         return postService.getAllPosts();
     }
-    @PostMapping("/all")
+    @PostMapping
     public PostModel createPost(@RequestBody @Valid PostModel post) {
         return postService.createPost(post);
-    }
-
-    @PostMapping
-    public void createClient(@RequestBody @Valid PostModel post){
-
-        postService.createClient(post);
     }
 
     @GetMapping("/{getClientById}")
@@ -35,7 +33,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public void getPostById(@RequestParam String postId){
+    public void getPostById(@PathVariable String postId){
         postService.getPostById(postId);
     }
 
@@ -46,19 +44,8 @@ public class PostController {
 
     @PutMapping("/{postId}")
     public void updatePost(@PathVariable String postId, @RequestBody PostModel post){
-
         post.setPostId(postId);
         postService.updatePost(post);
-
-    }
-
-
-    @PutMapping("/{clientId}")
-    public void clientPost(@PathVariable String clientId, @RequestBody PostModel client){
-
-        client.setClientId(String.valueOf(client));
-        postService.updateClient(client);
-
     }
 
     @DeleteMapping("/{postId}")
@@ -67,8 +54,8 @@ public class PostController {
     }
 
     @DeleteMapping("/{clientId}")
-    public void deleteClientById(@PathVariable String clientById){
-        postService.deleteClientById(clientById);
+    public void deleteClientById(@PathVariable String clientId){
+        postService.deleteClientById(clientId);
     }
 }
 

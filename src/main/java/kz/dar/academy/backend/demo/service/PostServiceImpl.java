@@ -27,10 +27,6 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public void createClient(PostModel post) {
-        postMap.put(post.getClientId(), post);
-    }
-    @Override
     public PostModel getClientById(String postId) {
         return postMap.get(postId);
     }
@@ -46,14 +42,11 @@ public class PostServiceImpl implements PostService{
     public void updatePost(PostModel post) {
     }
     @Override
-    public void updateClient(PostModel client) {
+    public void deletePostById(String postId) {
+        postMap.remove(postId);
     }
     @Override
     public void deleteClientById(String clientId) {
         postMap.remove(clientId);
-    }
-    @Override
-    public void deletePostById(String postId) {
-        postMap.remove(postId);
     }
 }
