@@ -53,9 +53,5 @@ public class PostController {
         postService.deletePostById(postById);
     }
 
-    @DeleteMapping("/{clientId}")
-    public void deleteClientById(@PathVariable String clientId){
-        postService.deleteClientById(clientId);
-    }
 }
 

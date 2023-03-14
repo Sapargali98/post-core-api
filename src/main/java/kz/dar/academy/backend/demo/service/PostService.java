@@ -10,7 +10,6 @@ public interface PostService {
     PostModel getStatus(String post);
     void updatePost(PostModel post);
     void deletePostById(String post);
-    void  deleteClientById(String post);
 
 }
 

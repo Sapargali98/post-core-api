@@ -45,8 +45,4 @@ public class PostServiceImpl implements PostService{
     public void deletePostById(String postId) {
         postMap.remove(postId);
     }
-    @Override
-    public void deleteClientById(String clientId) {
-        postMap.remove(clientId);
-    }
 }
