@@ -8,8 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends CrudRepository<PostEntity,Long> {
-    List<PostEntity> getPostEntityByPostId(String postId);
-    PostEntity getPostEntityByClientId(String clientId);
+    PostEntity getPostEntityByPostId(String postId);
     List<PostEntity> getPostEntityBy();
     @Transactional
     void deletePostEntityByPostId(String postId);

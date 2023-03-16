@@ -34,7 +34,7 @@ public class PostServiceImpl implements PostService{
     @Override
     public PostResponse updatePost(PostRequest postRequest) {
         PostEntity postEntity=modelMapper.map(postRequest,PostEntity.class);
-        PostEntity dbPost= (PostEntity) postRepository.getPostEntityByPostId(postRequest.getPostId());
+        PostEntity dbPost= postRepository.getPostEntityByPostId(postRequest.getPostId());
         postEntity.setId(dbPost.getId());
         postRepository.save(postEntity);
 
@@ -43,7 +43,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public PostResponse getPostById(String postId) {
-        PostEntity postEntity= (PostEntity) postRepository.getPostEntityByPostId(postId);
+        PostEntity postEntity=  postRepository.getPostEntityByPostId(postId);
         return modelMapper.map(postEntity,PostResponse.class);
     }
 
