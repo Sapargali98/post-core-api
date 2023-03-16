@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class PostModel {
-        private String postId;
         @NotNull(message = "PostId can't be empty")
-        private String clientId;
+        private String postId;
         @NotNull(message = "ClientId can't be empty")
+        private String clientId;
         private String postRecipientId;
-        private String postItem;
         @NotNull(message = "PostItem can't be empty")
+        private String postItem;
         private String status;
 }

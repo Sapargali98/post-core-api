@@ -1,8 +1,8 @@
-package kz.dar.academy.backend.demo.service;
+package kz.dar.academy.backend.demo.service.deprecated;
 import kz.dar.academy.backend.demo.model.PostModel;
 
 import java.util.List;
-public interface PostService {
+public interface PostServiceOld {
     PostModel createPost(PostModel post);
     List<PostModel> getAllPosts();
     PostModel getClientById(String post);

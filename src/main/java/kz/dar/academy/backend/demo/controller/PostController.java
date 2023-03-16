@@ -1,9 +1,9 @@
 package kz.dar.academy.backend.demo.controller;
 
-import jakarta.validation.Valid;
-import kz.dar.academy.backend.demo.model.PostModel;
-import kz.dar.academy.backend.demo.service.PostService;
-import kz.dar.academy.backend.demo.service.PostServiceImpl;
+import kz.dar.academy.backend.demo.model.PostRequest;
+import kz.dar.academy.backend.demo.model.PostResponse;
+import kz.dar.academy.backend.demo.service.post.PostService;
+import org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,44 +14,26 @@ import java.util.List;
 public class PostController {
     @Autowired
     private PostService postService;
-    @GetMapping("check")
-    public String check() {
-        return "Post-core-api is working";
+    @PostMapping
+    public PostResponse createPost(@RequestBody PostRequest postRequest) {
+        return postService.createPost(postRequest);
+    }
+    @PutMapping
+    public PostResponse updatePost(@RequestParam String postId,@RequestBody PostRequest postRequest) {
+        postRequest.setPostId(postId);
+        return postService.updatePost(postRequest);
+    }
+    @GetMapping
+    public PostResponse getPostById(@RequestParam String postId) {
+        return postService.getPostById(postId);
     }
     @GetMapping("/all")
-    public List<PostModel> getAllPosts() {
+    public List<PostResponse> getAllPosts() {
         return postService.getAllPosts();
     }
-    @PostMapping
-    public PostModel createPost(@RequestBody @Valid PostModel post) {
-        return postService.createPost(post);
-    }
-
-    @GetMapping("/{getClientById}")
-    public void getClientById(@RequestParam String clientId){
-        postService.getClientById(clientId);
-    }
-
-    @GetMapping("/{postId}")
-    public void getPostById(@PathVariable String postId){
-        postService.getPostById(postId);
-    }
-
-    @GetMapping
-    public void getStatus(@RequestParam String status){
-        postService.getStatus(status);
-    }
-
-    @PutMapping("/{postId}")
-    public void updatePost(@PathVariable String postId, @RequestBody PostModel post){
-        post.setPostId(postId);
-        postService.updatePost(post);
-    }
-
-    @DeleteMapping("/{postId}")
-    public void deletePostById(@PathVariable String postById){
-        postService.deletePostById(postById);
+    @DeleteMapping
+    public void deletePostById(@RequestParam String postId) {
+       postService.deletePostById(postId);
     }
 
 }
-

@@ -1,4 +1,4 @@
-package kz.dar.academy.backend.demo.service;
+package kz.dar.academy.backend.demo.service.deprecated;
 
 import kz.dar.academy.backend.demo.model.PostModel;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Service
 
-public class PostServiceImpl implements PostService{
+public class PostServiceImplOld implements PostServiceOld {
 
     HashMap<String, PostModel> postMap = new HashMap<>();
 
